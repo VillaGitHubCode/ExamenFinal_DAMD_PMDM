@@ -25,11 +25,19 @@ class MainActivity : AppCompatActivity() {
         binding.rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvTasks.adapter = adapter
 
-        viewModel.getTask()
+        viewModel.getDepartment(this)
         observeViewModelStates()
     }
 
     private fun observeViewModelStates() {
+
+        lifecycleScope.launch {
+            viewModel.department.collect{ department ->
+                if (department != null) {
+                    viewModel.getTask(department)
+                }
+            }
+        }
 
         lifecycleScope.launch {
 

@@ -8,4 +8,6 @@
     <string name="department">Nombre de departamento</string>
     <string name="description">Descripción de la tarea</string>
     <string name="error_request">No se han encontrado datos</string>
+    <string name="department_value">Departamento</string>
+    <string name="access_button">Acceder</string>
 </resources>
