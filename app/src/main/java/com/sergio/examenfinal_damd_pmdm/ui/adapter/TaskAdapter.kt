@@ -1,5 +1,6 @@
 package com.sergio.examenfinal_damd_pmdm.ui.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -28,7 +29,9 @@ class TaskAdapter : ListAdapter<TaskResponse, TaskAdapter.BaseViewHolder>(BaseIt
         holder.binding.tvDepartment.text = item.project.department
         holder.binding.tvDescription.text = item.description
 
-
+        if(item.project.department == "Mobile"){
+            holder.binding.cvItemBase.setCardBackgroundColor(Color.YELLOW)
+        }
     }
 
 
