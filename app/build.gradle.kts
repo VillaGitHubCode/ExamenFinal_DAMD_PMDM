@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.sergio.examenfinal_damd_pmdm"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.sergio.examenfinal_damd_pmdm"
@@ -26,6 +26,11 @@ android {
             )
         }
     }
+
+    viewBinding{
+        enable = true
+    }
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -44,4 +49,23 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //Corrutinas
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+
+    //DataStore + necesito corrutinas
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+
+    //Retrofit + necesito corrutinas
+    val retrofit = "2.9.0"
+    val interceptor = "4.11.0"
+    implementation ("com.squareup.retrofit2:retrofit:$retrofit")
+    implementation ("com.squareup.retrofit2:converter-gson:$retrofit")
+    implementation ("com.squareup.okhttp3:logging-interceptor:$interceptor")
+
+    //MVVM
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("androidx.activity:activity-ktx:1.8.2")
 }
