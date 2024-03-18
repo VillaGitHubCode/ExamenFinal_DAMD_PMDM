@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var _binding: ActivityMainBinding
     private val binding: ActivityMainBinding get() = _binding
 
+    private val viewModel: MainViewModel by viewModels()
     private val adapter= TaskAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,32 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvTasks.adapter = adapter
+
+        viewModel.getTask()
+        observeViewModelStates()
+    }
+
+    private fun observeViewModelStates() {
+
+        lifecycleScope.launch {
+
+            viewModel.mainState.collect{ homeState ->
+                if (homeState.response != null) {
+                    adapter.submitList(homeState.response)
+                }
+                if (homeState.isLoading) {
+                    binding.pbMain.visibility = View.VISIBLE
+                } else {
+                    binding.pbMain.visibility = View.GONE
+                }
+
+                if (homeState.isError) {
+                    binding.tvErrorRequest.visibility = View.VISIBLE
+                } else{
+                    binding.tvErrorRequest.visibility = View.GONE
+                }
+            }
+        }
 
     }
 

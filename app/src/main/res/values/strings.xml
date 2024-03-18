@@ -7,4 +7,5 @@
     <string name="deadline_project">Fecha de entrega del proyecto</string>
     <string name="department">Nombre de departamento</string>
     <string name="description">Descripción de la tarea</string>
+    <string name="error_request">No se han encontrado datos</string>
 </resources>

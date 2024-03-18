@@ -14,7 +14,7 @@ object TaskAPI {
         .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://ud5-server.onrender.com/api/v1")
+        .baseUrl("https://ud5-server.onrender.com/api/v1/")
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
