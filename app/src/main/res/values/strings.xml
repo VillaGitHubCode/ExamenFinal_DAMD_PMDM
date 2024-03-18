@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ExamenFinal_DAMD_PMDM</string>
+    <string name="task_title">Título de la tarea</string>
+    <string name="employee_name">Nombre del empleado</string>
+    <string name="deadline">Fecha de entrega de la tarea</string>
+    <string name="project_name">Información del proyecto</string>
+    <string name="deadline_project">Fecha de entrega del proyecto</string>
+    <string name="department">Nombre de departamento</string>
+    <string name="description">Descripción de la tarea</string>
 </resources>
